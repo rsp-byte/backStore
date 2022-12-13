@@ -42,7 +42,7 @@ public class ProductController {
 	@GetMapping("/productos")
 	public ResponseEntity<List<ProductDto>> getProducts() {
 		List<Product> pe = productService.getAllProduct();
-		List<ProductDto> p = new ArrayList<ProductDto>();
+		List<ProductDto> p = new ArrayList<>();
 		pe.forEach(pep-> p.add(modelMapper.map(pep, ProductDto.class)));
 		return new ResponseEntity<>(p, HttpStatus.OK);
 	}

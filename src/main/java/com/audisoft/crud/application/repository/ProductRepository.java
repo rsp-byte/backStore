@@ -7,11 +7,11 @@ import java.util.List;
 
 public interface ProductRepository {
 
-	public Product findById(Long id);
+	 Product findById(Long id);
 	
-	public void saveProduct(Product product);
+	 void saveProduct(Product product);
 	
-	public List<Product> getAllProduct();
+	 List<Product> getAllProduct();
 
-	public Product updateProduct(Long id, Product product);
+	 Product updateProduct(Long id, Product product);
 }
