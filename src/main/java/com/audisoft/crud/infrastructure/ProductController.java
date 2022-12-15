@@ -1,18 +1,12 @@
 package com.audisoft.crud.infrastructure;
-
-
 import com.audisoft.crud.application.service.ProductService;
 import com.audisoft.crud.domain.Product;
 import com.audisoft.crud.infrastructure.dto.ProductDto;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-
 import lombok.RequiredArgsConstructor;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,9 +15,7 @@ import java.util.List;
 @RequestMapping("/api/v1")
 @CrossOrigin(origins = "*", maxAge = 3600)
 public class ProductController {
-	
-	@Autowired
-	ProductService productService;
+	private final ProductService productService;
 	
 	ModelMapper modelMapper = new ModelMapper();
 	

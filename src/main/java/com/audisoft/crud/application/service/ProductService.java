@@ -23,7 +23,6 @@ public class ProductService {
 		 return productRepository.getAllProduct();
 	}
 	
-	public Product updateProduct(Long id , Product product){
-		return productRepository.updateProduct(id, product);
-	}
+	public void updateProduct(Long id , Product product){productRepository.updateProduct(id, product);}
+
 }

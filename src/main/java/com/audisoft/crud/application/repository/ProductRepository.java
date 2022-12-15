@@ -13,5 +13,5 @@ public interface ProductRepository {
 	
 	 List<Product> getAllProduct();
 
-	 Product updateProduct(Long id, Product product);
+	 void updateProduct(Long id, Product product);
 }

@@ -40,10 +40,9 @@ public class ProductDbRepsository implements ProductRepository {
 	}
 
 	@Override
-	public Product updateProduct(Long id, Product product) {
+	public void updateProduct(Long id, Product product) {
 		product.setId(id);
 		productDbRepository.save(modelMapper.map(product, ProductEntity.class));
-		return findById(id);
 	}
 
 }
