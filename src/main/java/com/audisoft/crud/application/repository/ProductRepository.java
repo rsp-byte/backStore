@@ -1,6 +1,7 @@
 package com.audisoft.crud.application.repository;
 
 
+
 import com.audisoft.crud.domain.Product;
 
 import java.util.List;
@@ -14,4 +15,7 @@ public interface ProductRepository {
 	 List<Product> getAllProduct();
 
 	 void updateProduct(Long id, Product product);
+	 
+	 void deleteProduct(Long id);
+	 
 }

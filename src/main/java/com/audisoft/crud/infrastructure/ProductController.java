@@ -1,6 +1,8 @@
 package com.audisoft.crud.infrastructure;
 import com.audisoft.crud.application.service.ProductService;
+import com.audisoft.crud.domain.Comment;
 import com.audisoft.crud.domain.Product;
+import com.audisoft.crud.infrastructure.dto.CommentsDto;
 import com.audisoft.crud.infrastructure.dto.ProductDto;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
@@ -16,6 +18,7 @@ import java.util.List;
 @CrossOrigin(origins = "*", maxAge = 3600)
 public class ProductController {
 	private final ProductService productService;
+
 	
 	ModelMapper modelMapper = new ModelMapper();
 	
@@ -42,7 +45,19 @@ public class ProductController {
 	@PutMapping("producto/{id}")
 	public ResponseEntity<ProductDto> updateProduct(@PathVariable Long id , @RequestBody ProductDto productDto){
 		productService.updateProduct(id,modelMapper.map(productDto,Product.class));
-		return new ResponseEntity<>( modelMapper.map((productService.getProduct(id)), ProductDto.class), HttpStatus.ACCEPTED);
+		return new ResponseEntity<>( modelMapper.map((productService.getProduct(id)), ProductDto.class), HttpStatus.OK);
+	}
+	
+    @DeleteMapping("producto/{id}")
+    public ResponseEntity<?> deleteProduct(@PathVariable Long id) {
+        productService.deleteProduct(id);
+        return ResponseEntity.ok().body("{\"message\": \"Product deleted successfully\"}");
+    }
+    
+	@PostMapping("/comentarios")
+	public ResponseEntity<CommentsDto> saveComment(@RequestBody CommentsDto commentsDto) {
+		productService.saveComments(modelMapper.map(commentsDto, Comment.class));
+		return new ResponseEntity<>( HttpStatus.CREATED);
 	}
 
 }

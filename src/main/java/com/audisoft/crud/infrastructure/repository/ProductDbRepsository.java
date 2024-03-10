@@ -45,4 +45,10 @@ public class ProductDbRepsository implements ProductRepository {
 		productDbRepository.save(modelMapper.map(product, ProductEntity.class));
 	}
 
+	@Override
+	public void deleteProduct(Long id) {
+		productDbRepository.deleteById(id);
+	}
+
+
 }
